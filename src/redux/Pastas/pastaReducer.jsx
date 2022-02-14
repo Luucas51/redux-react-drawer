@@ -1,4 +1,4 @@
-import { BUY_PASTAS } from './pastaTypes';
+import { BUY_PASTAS, EAT_PASTAS } from './pastaTypes';
 
 
 const initialState = {
@@ -11,6 +11,11 @@ const pastasReducer = (state = initialState, action) => {
       return {
         ...state,
         pastas: state.pastas + 1
+      };
+    case EAT_PASTAS:
+      return {
+        ...state,
+        pastas: state.pastas - 1 
       };
     default:
       return state;
