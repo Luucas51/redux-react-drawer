@@ -1,0 +1,36 @@
+import { connect } from 'react-redux';
+import { buyPastas } from '../../redux/index';
+
+
+
+const PastasContainer = (props) => {
+  
+  const onClick = () => {
+    return (
+      props.buyPastas()
+    )
+  }
+
+
+  return (
+    <div className="PastasContainer">
+      <h1>Nb of pastas : {props.pastas.pastas}</h1>
+      <button onClick= {onClick}>Buy pastas</button>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    pastas: state.pastas
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    buyPastas: () => (dispatch(buyPastas()))
+  };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PastasContainer);
